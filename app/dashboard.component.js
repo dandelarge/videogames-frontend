@@ -9,16 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var game_service_1 = require("./game.service");
+var router_1 = require("@angular/router");
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(router, gameService) {
+        this.router = router;
+        this.gameService = gameService;
+        this.games = [];
     }
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.gameService.getGames().then(function (games) { return _this.games = games; });
+    };
+    DashboardComponent.prototype.gotoDetail = function (game) {
+        var link = ['/detail', game.id];
+        this.router.navigate(link);
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'dashboard',
             templateUrl: 'dashboard.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, game_service_1.GameService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

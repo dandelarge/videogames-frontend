@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {VideoGame} from './videogame';
 import {GameService} from "./game.service";
+import {Router} from "@angular/router";
 
 @Component({
-    selector: 'app',
+    moduleId: module.id,
+    selector: 'games',
     template: `
-<h1>{{title}}</h1>
 <h2>Games on display</h2>
 <ul class="heroes">
-    <li *ngFor="let game of games" (click)="onSelect(game)">
-        <span class="badge">{{game.id}}</span> {{game.name}}
+    <li *ngFor="let game of games" (click)="gotoDetail(game.id)">
+        <span class="badge">{{game.id}}</span> {{game.title}}
     </li>
 </ul>
-<game-detail [game]="selectedGame"></game-detail>
 `,
     styles: [`
   .selected {
@@ -62,25 +62,27 @@ import {GameService} from "./game.service";
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
-`],
-    providers: [GameService]
+`]
 })
-export class AppComponent implements OnInit{
-    title = 'Video games Catalogue';
+export class GamesComponent implements OnInit{
     games: VideoGame[];
-    selectedGame: VideoGame;
 
-    constructor(private gameService: GameService) { }
+    constructor(private gameService: GameService, private router: Router) { }
 
-    onSelect(game: VideoGame): void {
-        this.selectedGame = game;
-    }
 
     getGames(): void {
-        this.gameService.getGames().then(games => this.games = games);
+        this.gameService.getGames().then(games =>
+        {
+            console.log(games);
+            this.games = games;
+        });
     }
 
     ngOnInit(): void {
         this.getGames();
+    }
+
+    gotoDetail(id: number): void {
+        this.router.navigate(['/detail', id]);
     }
 }

@@ -1,9 +1,9 @@
 <div *ngIf="game">
-    <h2>{{game.name}} details!</h2>
+    <h2>{{game.title}} details!</h2>
     <div><label>id: </label>{{game.id}}</div>
     <div>
         <label>name: </label>
-        <input [(ngModel)]="game.name" placeholder="name">
+        <input [(ngModel)]="game.title" placeholder="name">
     </div>
     <button (click)="goBack()">Back</button>
 </div>
