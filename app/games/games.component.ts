@@ -7,63 +7,7 @@ import {GameService} from "../shared/game.service";
 @Component({
     moduleId: module.id,
     selector: 'games',
-    template: `
-<h2>Games on display</h2>
-<ul class="heroes">
-    <li *ngFor="let game of games" (click)="gotoDetail(game.id)">
-        <span class="badge">{{game.id}}</span> {{game.title}}
-    </li>
-</ul>
-`,
-    styles: [`
-  .selected {
-    background-color: #CFD8DC !important;
-    color: white;
-  }
-  .heroes {
-    margin: 0 0 2em 0;
-    list-style-type: none;
-    padding: 0;
-    width: 15em;
-  }
-  .heroes li {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: #EEE;
-    margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
-    border-radius: 4px;
-  }
-  .heroes li.selected:hover {
-    background-color: #BBD8DC !important;
-    color: white;
-  }
-  .heroes li:hover {
-    color: #607D8B;
-    background-color: #DDD;
-    left: .1em;
-  }
-  .heroes .text {
-    position: relative;
-    top: -3px;
-  }
-  .heroes .badge {
-    display: inline-block;
-    font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 1.8em;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
-  }
-`]
+    templateUrl: 'games.component.html'
 })
 export class GamesComponent implements OnInit{
     games: VideoGame[];
@@ -74,7 +18,6 @@ export class GamesComponent implements OnInit{
     getGames(): void {
         this.gameService.getGames().then(games =>
         {
-            console.log(games);
             this.games = games;
         });
     }
@@ -85,5 +28,11 @@ export class GamesComponent implements OnInit{
 
     gotoDetail(id: number): void {
         this.router.navigate(['/detail', id]);
+    }
+
+    deleteGame(id: number): void {
+        this.gameService.removeGame(id).subscribe(
+            response => this.getGames()
+        );
     }
 }

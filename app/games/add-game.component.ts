@@ -16,8 +16,8 @@ export class AddGameComponent {
         private gameService: GameService,
         private router: Router
     ) {
-        this.game.title = 'add title';
-        this.game.case_img = 'Paste a url for an image here';
+        this.game.title = '';
+        this.game.case_img = '';
     }
 
     addGame(): void{

@@ -1,9 +1,21 @@
-<div *ngIf="game">
+<section *ngIf="game">
     <h2>{{game.title}} details!</h2>
-    <div><label>id: </label>{{game.id}}</div>
-    <div>
-        <label>name: </label>
-        <input [(ngModel)]="game.title" placeholder="name">
+    <div class="fieldset">
+    <div><label>game Id: </label>{{game.id}}</div>
     </div>
-    <button (click)="goBack()">Back</button>
-</div>
+    <div class="fieldset">
+        <label>name: </label>
+        <input type="text" [(ngModel)]="game.title" placeholder="name">
+    </div>
+    <div class="fieldset">
+        <label>Game Case Url:</label>
+        <input type="text" [(ngModel)]="game.case_img">
+    </div>
+    <div class="fieldset">
+        <img src="{{game.case_img}}" alt="{{game.title}}">
+    </div>
+    <div class="fieldset">
+        <button (click)="updateGame(game)"> Save </button>
+    </div>
+    <button (click)="goBack()"> Go Back </button>
+</section>

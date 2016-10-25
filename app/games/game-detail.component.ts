@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Location} from '@angular/common'
 
 import {VideoGame} from "../shared/videogame";
@@ -18,7 +18,8 @@ export class GameDetailComponent implements OnInit{
     constructor(
         private gameService: GameService,
         private route: ActivatedRoute,
-        private location: Location
+        private location: Location,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -32,5 +33,10 @@ export class GameDetailComponent implements OnInit{
         this.location.back();
     }
 
+    updateGame(game: VideoGame): void {
+        this.gameService.updateGame(game).subscribe(
+             res => this.router.navigate(['dashboard'])
+        );
+    }
 
 }

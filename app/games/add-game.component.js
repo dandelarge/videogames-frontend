@@ -17,8 +17,8 @@ var AddGameComponent = (function () {
         this.gameService = gameService;
         this.router = router;
         this.game = new videogame_1.VideoGame();
-        this.game.title = 'add title';
-        this.game.case_img = 'Paste a url for an image here';
+        this.game.title = '';
+        this.game.case_img = '';
     }
     AddGameComponent.prototype.addGame = function () {
         var _this = this;

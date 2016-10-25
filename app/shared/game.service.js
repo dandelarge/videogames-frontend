@@ -37,11 +37,11 @@ var GameService = (function () {
         }).map(function (response) { return response.json(); });
     };
     GameService.prototype.removeGame = function (id) {
-        return this.http.delete(this.url + 'games/' + id)
-            .map(function (response) { return response.json(); });
+        return this.http.delete(this.url + 'games/' + id);
     };
     GameService.prototype.updateGame = function (game) {
         return this.http.put(this.url + 'games/' + game.id, {
+            id: game.id,
             title: game.title,
             case_img: game.case_img
         }).map(function (response) { return response.json(); });

@@ -1,0 +1,12 @@
+<section class="games-list">
+    <h2>Games on display</h2>
+    <ul>
+        <li *ngFor="let game of games">
+            <span class="title" (click)="gotoDetail(game.id)">{{game.id}} {{game.title}}</span>
+            <div class="cta-section">
+                <button class="cta-button" (click)="gotoDetail(game.id)"> edit </button>
+                <button class="cta-button" (click)="deleteGame(game.id)"> delete </button>
+            </div>
+        </li>
+    </ul>
+</section>

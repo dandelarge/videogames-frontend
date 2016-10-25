@@ -14,10 +14,11 @@ var common_1 = require('@angular/common');
 var videogame_1 = require("../shared/videogame");
 var game_service_1 = require("../shared/game.service");
 var GameDetailComponent = (function () {
-    function GameDetailComponent(gameService, route, location) {
+    function GameDetailComponent(gameService, route, location, router) {
         this.gameService = gameService;
         this.route = route;
         this.location = location;
+        this.router = router;
     }
     GameDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -29,6 +30,10 @@ var GameDetailComponent = (function () {
     GameDetailComponent.prototype.goBack = function () {
         this.location.back();
     };
+    GameDetailComponent.prototype.updateGame = function (game) {
+        var _this = this;
+        this.gameService.updateGame(game).subscribe(function (res) { return _this.router.navigate(['dashboard']); });
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', videogame_1.VideoGame)
@@ -39,7 +44,7 @@ var GameDetailComponent = (function () {
             selector: 'game-detail',
             templateUrl: 'game-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [game_service_1.GameService, router_1.ActivatedRoute, common_1.Location])
+        __metadata('design:paramtypes', [game_service_1.GameService, router_1.ActivatedRoute, common_1.Location, router_1.Router])
     ], GameDetailComponent);
     return GameDetailComponent;
 }());

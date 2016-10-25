@@ -1,9 +1,11 @@
-<h3>Top Heroes</h3>
-<button (click)="gotoAdd()">Add a new Game</button>
-<div class="grid grid-pad">
-    <div *ngFor="let game of games" (click)="gotoDetail(game)" class="col-1-4">
-        <div class="module hero">
-            <h4>{{game.title}}</h4>
+<section class="home">
+    <article *ngFor="let game of games" (click)="gotoDetail(game)" class="game-thumb">
+        <div class="thumbnail">
+            <div class="img-holder">
+                <img src="{{game.case_img}}" alt="{{game.title}}">
+            </div>
+            <p>{{game.title}}</p>
         </div>
-    </div>
-</div>
+    </article>
+    <button (click)="gotoAdd()">Add a new Game</button>
+</section>

@@ -38,13 +38,13 @@ export class GameService {
         }).map((response: Response) => response.json() as VideoGame);
     }
 
-    removeGame(id: Number): Observable<VideoGame> {
-        return this.http.delete(this.url + 'games/' + id)
-            .map((response: Response) => response.json() as VideoGame);
+    removeGame(id: Number): Observable<Response> {
+        return this.http.delete(this.url + 'games/' + id);
     }
 
     updateGame(game: VideoGame): Observable<VideoGame> {
         return this.http.put(this.url + 'games/' + game.id, {
+            id: game.id,
             title: game.title,
             case_img: game.case_img
         }).map((response: Response) => response.json() as VideoGame);

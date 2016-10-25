@@ -1,9 +1,15 @@
-<div class="add-game">
+<section class="add-game">
     <form>
-        <label for="gameTitle">Game Title: </label>
-        <input type="text" [(ngModel)]="game.title" id="gameTitle" name="title">
-        <label for="caseImg">Case Image Url:</label>
-        <input type="text" [(ngModel)]="game.case_img" id="caseImg" name="case">
-        <button (click)="addGame()">Save game</button>
+        <div class="fieldset">
+            <label for="gameTitle">Game Title: </label>
+            <input type="text" [(ngModel)]="game.title" id="gameTitle" name="title">
+        </div>
+        <div class="fieldset">
+            <label for="caseImg">Case Image Url:</label>
+            <input type="text" [(ngModel)]="game.case_img" id="caseImg" name="case">
+        </div>
+            <div class="fieldset">
+            <button (click)="addGame()">Save game</button>
+        </div>
     </form>
-</div>
+</section>
