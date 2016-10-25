@@ -3,13 +3,14 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from "@angular/http";
 
-import {AppComponent} from './app.component';
-import {GameDetailComponent} from "./game-detail.component";
-import {GamesComponent} from "./games.component";
-import {GameService} from "./game.service";
-import {DashboardComponent} from "./dashboard.component";
 import {RoutesModule} from "./routes.module";
-import {AddGameComponent} from "./add-game.component";
+
+import {AppComponent} from './app.component';
+import {GameService} from "./shared/game.service";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {GameDetailComponent} from "./games/game-detail.component";
+import {GamesComponent} from "./games/games.component";
+import {AddGameComponent} from "./games/add-game.component";
 
 @NgModule({
     imports: [

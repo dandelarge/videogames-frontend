@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var games_component_1 = require('./games.component');
-var dashboard_component_1 = require('./dashboard.component');
-var game_detail_component_1 = require('./game-detail.component');
-var add_game_component_1 = require("./add-game.component");
+var games_component_1 = require('./games/games.component');
+var dashboard_component_1 = require('./dashboard/dashboard.component');
+var game_detail_component_1 = require('./games/game-detail.component');
+var add_game_component_1 = require("./games/add-game.component");
 var routes = [
     {
         path: '',

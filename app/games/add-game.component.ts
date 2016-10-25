@@ -1,6 +1,6 @@
 import {Component, Input} from "@angular/core";
-import {GameService} from "./game.service";
-import {VideoGame} from "./videogame";
+import {GameService} from "../shared/game.service";
+import {VideoGame} from "../shared/videogame";
 import {Router} from "@angular/router";
 
 @Component({

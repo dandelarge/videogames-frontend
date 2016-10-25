@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
-import {VideoGame} from "./videogame";
-import {GameService} from "./game.service";
+import {VideoGame} from "../shared/videogame";
+import {GameService} from "../shared/game.service";
 
 @Component({
     moduleId: module.id,

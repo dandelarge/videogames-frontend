@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Location} from '@angular/common'
 
-import {VideoGame} from "./videogame";
-import {GameService} from "./game.service";
+import {VideoGame} from "../shared/videogame";
+import {GameService} from "../shared/game.service";
 
 
 @Component({

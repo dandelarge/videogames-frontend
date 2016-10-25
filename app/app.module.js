@@ -12,13 +12,13 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require("@angular/http");
-var app_component_1 = require('./app.component');
-var game_detail_component_1 = require("./game-detail.component");
-var games_component_1 = require("./games.component");
-var game_service_1 = require("./game.service");
-var dashboard_component_1 = require("./dashboard.component");
 var routes_module_1 = require("./routes.module");
-var add_game_component_1 = require("./add-game.component");
+var app_component_1 = require('./app.component');
+var game_service_1 = require("./shared/game.service");
+var dashboard_component_1 = require("./dashboard/dashboard.component");
+var game_detail_component_1 = require("./games/game-detail.component");
+var games_component_1 = require("./games/games.component");
+var add_game_component_1 = require("./games/add-game.component");
 var AppModule = (function () {
     function AppModule() {
     }

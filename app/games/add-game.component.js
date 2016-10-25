@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var game_service_1 = require("./game.service");
-var videogame_1 = require("./videogame");
+var game_service_1 = require("../shared/game.service");
+var videogame_1 = require("../shared/videogame");
 var router_1 = require("@angular/router");
 var AddGameComponent = (function () {
     function AddGameComponent(gameService, router) {
