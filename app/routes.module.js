@@ -13,6 +13,7 @@ var router_1 = require("@angular/router");
 var games_component_1 = require('./games.component');
 var dashboard_component_1 = require('./dashboard.component');
 var game_detail_component_1 = require('./game-detail.component');
+var add_game_component_1 = require("./add-game.component");
 var routes = [
     {
         path: '',
@@ -30,6 +31,10 @@ var routes = [
     {
         path: 'detail/:id',
         component: game_detail_component_1.GameDetailComponent
+    },
+    {
+        path: 'add',
+        component: add_game_component_1.AddGameComponent
     }
 ];
 var RoutesModule = (function () {

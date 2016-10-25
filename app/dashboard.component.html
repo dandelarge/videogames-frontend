@@ -1,4 +1,5 @@
 <h3>Top Heroes</h3>
+<button (click)="gotoAdd()">Add a new Game</button>
 <div class="grid grid-pad">
     <div *ngFor="let game of games" (click)="gotoDetail(game)" class="col-1-4">
         <div class="module hero">

@@ -1,7 +1,11 @@
 import {Injectable} from '@angular/core';
+import {Http, Response} from "@angular/http";
+
 import {VideoGame} from "./videogame";
-import {Http} from "@angular/http";
+import {Observable} from "rxjs";
+
 import 'rxjs/add/operator/toPromise'
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class GameService {
@@ -16,7 +20,7 @@ export class GameService {
     }
 
     getGames(): Promise<VideoGame[]> {
-        return this.http.get(this.url + 'games').toPromise()
+        return this.http.get(this.url + 'games/').toPromise()
             .then(response => response.json() as VideoGame[])
             .catch(this.handleError);
     }
@@ -25,5 +29,24 @@ export class GameService {
         return this.http.get(this.url + 'games/' + id).toPromise()
             .then(response => response.json() as VideoGame)
             .catch(this.handleError);
+    }
+
+    addGame(game: VideoGame): Observable<VideoGame> {
+        return this.http.post(this.url + 'games', {
+            title: game.title,
+            case_img: game.case_img
+        }).map((response: Response) => response.json() as VideoGame);
+    }
+
+    removeGame(id: Number): Observable<VideoGame> {
+        return this.http.delete(this.url + 'games/' + id)
+            .map((response: Response) => response.json() as VideoGame);
+    }
+
+    updateGame(game: VideoGame): Observable<VideoGame> {
+        return this.http.put(this.url + 'games/' + game.id, {
+            title: game.title,
+            case_img: game.case_img
+        }).map((response: Response) => response.json() as VideoGame);
     }
 }

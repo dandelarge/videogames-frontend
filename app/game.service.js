@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require("@angular/http");
 require('rxjs/add/operator/toPromise');
+require('rxjs/add/operator/map');
 var GameService = (function () {
     function GameService(http) {
         this.http = http;
@@ -20,7 +21,7 @@ var GameService = (function () {
         console.log(error);
     };
     GameService.prototype.getGames = function () {
-        return this.http.get(this.url + 'games').toPromise()
+        return this.http.get(this.url + 'games/').toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
@@ -28,6 +29,22 @@ var GameService = (function () {
         return this.http.get(this.url + 'games/' + id).toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
+    };
+    GameService.prototype.addGame = function (game) {
+        return this.http.post(this.url + 'games', {
+            title: game.title,
+            case_img: game.case_img
+        }).map(function (response) { return response.json(); });
+    };
+    GameService.prototype.removeGame = function (id) {
+        return this.http.delete(this.url + 'games/' + id)
+            .map(function (response) { return response.json(); });
+    };
+    GameService.prototype.updateGame = function (game) {
+        return this.http.put(this.url + 'games/' + game.id, {
+            title: game.title,
+            case_img: game.case_img
+        }).map(function (response) { return response.json(); });
     };
     GameService = __decorate([
         core_1.Injectable(), 

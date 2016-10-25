@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
+
 import {VideoGame} from "./videogame";
 import {GameService} from "./game.service";
-import {Router} from "@angular/router";
 
 @Component({
     moduleId: module.id,
@@ -23,5 +24,9 @@ export class DashboardComponent implements OnInit{
     gotoDetail(game: VideoGame): void {
         let link = ['/detail', game.id];
         this.router.navigate(link);
+    }
+
+    gotoAdd(): void {
+        this.router.navigate(['add/']);
     }
 }

@@ -11,13 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var http_1 = require("@angular/http");
 var app_component_1 = require('./app.component');
 var game_detail_component_1 = require("./game-detail.component");
 var games_component_1 = require("./games.component");
 var game_service_1 = require("./game.service");
 var dashboard_component_1 = require("./dashboard.component");
 var routes_module_1 = require("./routes.module");
-var http_1 = require("@angular/http");
+var add_game_component_1 = require("./add-game.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -33,7 +34,8 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 games_component_1.GamesComponent,
                 game_detail_component_1.GameDetailComponent,
-                dashboard_component_1.DashboardComponent
+                dashboard_component_1.DashboardComponent,
+                add_game_component_1.AddGameComponent
             ],
             providers: [game_service_1.GameService],
             bootstrap: [app_component_1.AppComponent]

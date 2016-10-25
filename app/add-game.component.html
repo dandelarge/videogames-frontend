@@ -1,0 +1,9 @@
+<div class="add-game">
+    <form>
+        <label for="gameTitle">Game Title: </label>
+        <input type="text" [(ngModel)]="game.title" id="gameTitle" name="title">
+        <label for="caseImg">Case Image Url:</label>
+        <input type="text" [(ngModel)]="game.case_img" id="caseImg" name="case">
+        <button (click)="addGame()">Save game</button>
+    </form>
+</div>
